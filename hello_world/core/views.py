@@ -15,11 +15,15 @@ def clicked(request):
 
 def contacts(request):
     ordre = request.GET.get('ordre', 'asc')
+    """
     if ordre == 'desc':
         contacts = Contact.objects.order_by('-nom')
     else:
         contacts = Contact.objects.order_by('nom')
+    """
     if request.htmx:
         return render(request, 'liste_contacts.html', {'contacts': contacts})
     return render(request, 'contacts.html', {'contacts': contacts})
     
+def search(request):
+    return render(request, "search.html")

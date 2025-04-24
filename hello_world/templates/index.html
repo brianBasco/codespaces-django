@@ -34,21 +34,21 @@
 </div>
 
 <button 
-    hx-get="{% url 'contacts' %}?ordre=asc" 
+    hx-get="contacts?ordre=asc" 
     hx-target="#liste-contacts" 
     hx-swap="outerHTML">
     Trier A-Z
 </button>
 
 <button 
-    hx-get="{% url 'contacts' %}?ordre=desc" 
+    hx-get="contacts?ordre=desc" 
     hx-target="#liste-contacts" 
     hx-swap="outerHTML">
     Trier Z-A
 </button>
 
 <div id="liste-contacts">
-    {% include 'partials/_liste_contacts.html' %}
+    {% include 'liste_contacts.html' %}
 </div>
         
     </div>
