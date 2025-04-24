@@ -20,6 +20,6 @@ def contacts(request):
     else:
         contacts = Contact.objects.order_by('nom')
     if request.htmx:
-        return render(request, 'partials/_liste_contacts.html', {'contacts': contacts})
+        return render(request, 'liste_contacts.html', {'contacts': contacts})
     return render(request, 'contacts.html', {'contacts': contacts})
     
