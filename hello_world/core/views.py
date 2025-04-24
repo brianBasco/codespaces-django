@@ -12,4 +12,14 @@ def clicked(request):
         response = HttpResponse("OK !!!!!!", 200)
         response["HX-Trigger"] = "showMessage"
         return response
+
+def contacts(request):
+    ordre = request.GET.get('ordre', 'asc')
+    if ordre == 'desc':
+        contacts = Contact.objects.order_by('-nom')
+    else:
+        contacts = Contact.objects.order_by('nom')
+    if request.htmx:
+        return render(request, 'partials/_liste_contacts.html', {'contacts': contacts})
+    return render(request, 'contacts.html', {'contacts': contacts})
     
